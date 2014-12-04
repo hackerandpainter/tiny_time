@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'api/getBooks', 'main.api.get_books'),
+    url(r'api/getBooks', 'main.api.get_books', name="home"),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
 )
