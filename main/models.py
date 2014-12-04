@@ -21,10 +21,10 @@ class Book(models.Model):
         return self.name
 
     def to_json(self):
-        obj_dict = dict(name=self.name, artistId=self.artistId,
+        obj_dict = dict(id=self.id, name=self.name, artistId=self.artistId,
                         artist=self.artist, categoryId=self.categoryId,
                         category=self.category, vol=self.vol, like=self.like,
-                        share=self.share, time=self.time.isoformat(), paintings=self.paintings)
+                        share=self.share, time=self.time.isoformat(), paintings=self.paintings, )
         return json.dumps(obj_dict)
 
     class Meta:
