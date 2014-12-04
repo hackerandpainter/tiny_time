@@ -2,6 +2,8 @@ __author__ = 'night'
 from models import Book
 
 
-def get_book(book_id):
-    book = Book.objects.get(id=book_id)
-    return book
+def get_books(book_ids):
+    # todo add get book logic
+    # book = Book.objects.get(id=book_ids)
+    books = Book.objects.all()
+    return books

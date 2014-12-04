@@ -10,10 +10,10 @@ from rest_framework.renderers import JSONRenderer
 
 def get_books(request):
     if request.method == 'POST':
-        book_id = request.POST.get("id", "")
-        book = db.get_book(book_id)
-        return HttpResponse(JSONRenderer().render(BookSerializers(book).data))
+        book_ids = request.POST.get("ids", "")
+        books = db.get_books(book_ids)
+        return HttpResponse(JSONRenderer().render(BookSerializers(books, many=True).data))
     else:
-        book_id = request.GET.get("id", "")
-        book = db.get_book(book_id)
-        return HttpResponse(JSONRenderer().render(BookSerializers(book).data))
+        book_ids = request.GET.get("ids", "")
+        books = db.get_books(book_ids)
+        return HttpResponse(JSONRenderer().render(BookSerializers(books, many=True).data))
